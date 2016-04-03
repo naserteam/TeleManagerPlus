@@ -135,8 +135,8 @@ local function run(msg, matches)
  if matches[1]:lower() == 'setrank' then
   local hash = 'usecommands:'..msg.from.id..':'..msg.to.id
   redis:incr(hash)
-  if not is_owner(msg) then
-    return "تنها برای صاحبان گروه مجاز است"
+  if not is_sudo(msg) then
+    return "فقط براس سازنده ربات مجاز است"
   end
   local receiver = get_receiver(msg)
   local Reply = msg.reply_id
@@ -267,3 +267,4 @@ end
 --
 --By @ali_ghoghnoos
 --@telemanager_ch
+--reza
